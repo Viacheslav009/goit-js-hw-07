@@ -1,6 +1,5 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
-import * as basicLightbox from 'basiclightbox';
 
 console.log(galleryItems);
 
@@ -22,6 +21,7 @@ function creteImageCardMarkup(galleryItems) {
   </a>
 </div>`;
     })
+
     .join('');
 }
 function imageClickAction(evt) {
@@ -29,15 +29,14 @@ function imageClickAction(evt) {
   if (!evt.target.classList.contains('gallery__image')) {
     return;
   }
-  console.log(evt.target);
+  // console.log(evt.target.dataset.source);
+  imageContainer.onclick = () => {
+    basicLightbox
+      .create(
+        `
+		<img width="1400" height="900" src="${evt.target.dataset.source}">
+	`
+      )
+      .show();
+  };
 }
-
-// document.querySelector('.gallery').onclick = () => {
-//   basicLightbox
-//     .create(
-//       `
-// 		<img width="1400" height="900" src="https://placehold.it/1400x900">
-// 	`
-//     )
-//     .show();
-// };
