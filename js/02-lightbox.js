@@ -12,9 +12,9 @@ function creteImageCardMarkup(galleryItems) {
     .map(({ preview, original, description }) => {
       return `
   <a class="gallery__item" href="${original}">
-  <img class="gallery__image" src="${preview}" data-caption="${description}" />
+  <img class="gallery__image" src="${preview}" alt="${description}" />
 </a>
-</div>`;
+`;
     })
 
     .join('');
@@ -24,21 +24,16 @@ function imageClickAction(evt) {
   if (!evt.target.classList.contains('gallery__image')) {
     return;
   }
+  1;
+
+  const options = {
+    captions: true,
+    captionDelay: 200,
+    captionSelector: 'alt',
+    captionType: 'text',
+    captionPosition: 'bottom',
+  };
   new SimpleLightbox('.gallery a', {
-    /* options */
+    options,
   });
-  //   let galleryy = new SimpleLightbox('.gallery ');
-  //   gallery.on('show.simplelightbox', function () {
-  //     // Do something…
-  //   });
-
-  //   galleryy.on('error.simplelightbox', function (e) {
-  //     console.log(e); // Some usefull information
-  //   });
-
-  // with jQuery nearly the same
-  //   let gallery = $('.gallery ').simpleLightbox();
-  //   gallery.on('show.simplelightbox', function () {
-  //     // Do something…
-  //   });
 }
