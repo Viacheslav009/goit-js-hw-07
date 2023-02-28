@@ -17,6 +17,7 @@ function creteImageCardMarkup(galleryItems) {
       src="${preview}"
       data-source="${original}"
       alt="${description}"
+      title="Beautiful Image"
     />
   </a>
 </div>`;
@@ -24,19 +25,26 @@ function creteImageCardMarkup(galleryItems) {
 
     .join('');
 }
+
 function imageClickAction(evt) {
   evt.preventDefault();
+  // imageContainer.onclick = () => {
+  //   basicLightbox
+  //     .create(
+  //       `
+  // 	<img width="1400" height="900" src="${evt.target.dataset.source}">
+  // `
+  //     )
+  //     .show();
+  // };
   if (!evt.target.classList.contains('gallery__image')) {
     return;
   }
-
-  imageContainer.onclick = () => {
-    basicLightbox
-      .create(
-        `
+  basicLightbox
+    .create(
+      `
 		<img width="1400" height="900" src="${evt.target.dataset.source}">
 	`
-      )
-      .show();
-  };
+    )
+    .show();
 }

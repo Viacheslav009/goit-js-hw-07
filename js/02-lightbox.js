@@ -19,21 +19,19 @@ function creteImageCardMarkup(galleryItems) {
 
     .join('');
 }
+
+const options = {
+  // captions: true,
+  captionDelay: 250,
+
+  captionPosition: 'bottom',
+  captionsData: 'alt',
+};
+new SimpleLightbox('.gallery a', options);
+
 function imageClickAction(evt) {
   evt.preventDefault();
   if (!evt.target.classList.contains('gallery__image')) {
     return;
   }
-  1;
-
-  const options = {
-    captions: true,
-    captionDelay: 200,
-    captionSelector: 'alt',
-    captionType: 'text',
-    captionPosition: 'bottom',
-  };
-  new SimpleLightbox('.gallery a', {
-    options,
-  });
 }
